@@ -2,14 +2,33 @@ require("dotenv").config();
 
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Read JSON requests, with a size limit.
 app.use(express.json({ limit: "20kb" }));
 
-// Limit repeated requests to help prevent API abuse.
+// Protect private and server-side files.
+app.use((req, res, next) => {
+    const blocked = [
+        "/server.js",
+        "/package.json",
+        "/package-lock.json"
+    ];
+
+    if (
+        blocked.includes(req.path) ||
+        req.path.startsWith("/node_modules/") ||
+        req.path.startsWith("/.git/")
+    ) {
+        return res.sendStatus(404);
+    }
+
+    next();
+});
+
+// DENIS AI rate limiter.
 const chatLimiter = rateLimit({
     windowMs: 60 * 1000,
     limit: 15,
@@ -20,13 +39,13 @@ const chatLimiter = rateLimit({
     }
 });
 
-// Check that the API key exists.
+// Check API key.
 if (!process.env.XAI_API_KEY) {
     console.error("ERROR: XAI_API_KEY is missing from your environment.");
     process.exit(1);
 }
 
-// Basic server status.
+// Server status.
 app.get("/api/status", (req, res) => {
     res.json({
         status: "online",
@@ -45,7 +64,6 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
             });
         }
 
-        // Keep only the latest 10 valid messages.
         const conversation = messages
             .filter(message =>
                 message &&
@@ -82,22 +100,19 @@ Your responsibilities:
 2. Explain the business services clearly.
 3. Help visitors understand which service may suit their needs.
 4. Answer general questions about the website.
-5. Encourage visitors who want a service to use the contact page
-   or WhatsApp contact option.
+5. Direct interested visitors to the contact page or WhatsApp.
 
 Rules:
 - Be friendly, professional, clear and helpful.
 - Keep answers reasonably concise.
 - Do not invent business addresses, opening hours, completed projects,
   customer reviews, prices or guarantees.
-- If you do not know a business detail, say so and direct the visitor
-  to the contact page.
+- If you do not know a business detail, direct the visitor to the contact page.
 - Do not claim that a booking or payment has been confirmed.
 - Never ask visitors for passwords, API keys or bank PINs.
 - You are an AI assistant, not a human employee.
 `;
 
-        // Send the conversation to Grok.
         const grokResponse = await fetch(
             "https://api.x.ai/v1/responses",
             {
@@ -125,7 +140,6 @@ Rules:
             });
         }
 
-        // Extract the text answer from the response.
         let answer = data.output_text || "";
 
         if (!answer && Array.isArray(data.output)) {
@@ -145,9 +159,7 @@ Rules:
             });
         }
 
-        res.json({
-            reply: answer
-        });
+        res.json({ reply: answer });
 
     } catch (error) {
         console.error("Server error:", error);
@@ -158,7 +170,23 @@ Rules:
     }
 });
 
-// Start the server.
-app.listen(PORT, () => {
-    console.log(`DENIS AI server running on port ${PORT}`);
+// Serve website files: HTML, CSS, JavaScript and images.
+app.use(express.static(__dirname, {
+    index: false,
+    dotfiles: "deny"
+}));
+
+// Display index.html when visitors open the website.
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Handle unknown pages.
+app.use((req, res) => {
+    res.status(404).send("Page not found.");
+});
+
+// Start server for Render.
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`DENIS GODSON GLOBAL VENTURES running on port ${PORT}`);
 });
