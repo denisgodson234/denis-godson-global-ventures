@@ -384,3 +384,134 @@ img { max-width: 100%; }
     bottom: 15px;
 }
 }
+/* =====================================
+MOBILE SCREEN SIZE AND OVERFLOW FIX
+===================================== */
+
+* {
+  box-sizing: border-box;
+  }
+
+html,
+body {
+width: 100%;
+max-width: 100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+section,
+header,
+footer,
+main {
+max-width: 100%;
+}
+
+.hero,
+.about-main,
+.detailed-service,
+.service-container,
+.footer-content,
+.portfolio-grid,
+.card-grid,
+.mission-container,
+.values-container,
+.why-container {
+min-width: 0;
+}
+
+.hero-content,
+.hero-visual,
+.about-content,
+.detailed-content {
+min-width: 0;
+overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+
+.header {
+    width: 100%;
+    padding: 12px 4%;
+}
+
+.logo img {
+    width: 110px;
+    height: auto;
+}
+
+.hero {
+    width: 100%;
+    padding: 60px 5%;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-content h1 {
+    font-size: clamp(30px, 8vw, 43px);
+}
+
+.visual-card {
+    width: 100%;
+}
+
+.services,
+.about-preview,
+.cta,
+.footer,
+.portfolio-section {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.chat-window {
+    width: calc(100% - 20px);
+    max-width: 360px;
+    right: 10px;
+}
+
+}
+
+@media (max-width: 480px) {
+
+.logo img {
+    width: 100px;
+}
+
+.menu-toggle {
+    font-size: 25px;
+}
+
+.hero-content h1 {
+    font-size: 34px;
+}
+
+.hero-buttons {
+    gap: 10px;
+}
+
+.primary-btn,
+.secondary-btn {
+    max-width: 100%;
+    text-align: center;
+}
+
+.visual-card h2 {
+    font-size: 24px;
+}
+
+.footer-content {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.chat-window {
+    width: calc(100% - 20px);
+}
+
+}
