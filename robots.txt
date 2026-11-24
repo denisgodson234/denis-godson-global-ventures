@@ -1,0 +1,11 @@
+User-agent: *
+
+# Allow search engines to access public website pages.
+Allow: /
+
+# Keep private or administrative areas out of search results.
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location.
+Sitemap: https://www.example.com/sitemap.xml

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | DENIS GODSON GLOBAL VENTURES</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fc;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #071b3a;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav {
+            background: #102d59;
+            padding: 13px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 7px;
+            font-size: 14px;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #071b3a, #087bdf);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #071b3a;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .category {
+            color: #087bdf;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .blog-content h3 {
+            color: #071b3a;
+            margin: 8px 0;
+        }
+
+        .blog-content p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #087bdf;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .notice {
+            background: white;
+            padding: 20px;
+            border-left: 4px solid #087bdf;
+            margin-top: 30px;
+            border-radius: 6px;
+            color: #555;
+        }
+
+        footer {
+            background: #071b3a;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #64b5ff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 27px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>DENIS GODSON GLOBAL VENTURES</h1>
+    <p>Creative Ideas. Digital Solutions. Global Impact.</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <h2>Our Digital Blog</h2>
+    <p>
+        Discover useful ideas, practical tips and insights
+        about branding, graphic design, websites and digital marketing.
+    </p>
+</section>
+
+<div class="container">
+
+    <h2 class="section-title">Latest Articles</h2>
+
+    <div class="blog-grid">
+
+        <article class="blog-card">
+            <img
+                src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=700"
+                alt="Graphic design workspace"
+            >
+
+            <div class="blog-content">
+                <span class="category">Graphic Design</span>
+                <h3>Why Good Graphic Design Matters</h3>
+
+                <p>
+                    Learn how professional graphics can help a business
+                    communicate clearly and create a memorable impression.
+                </p>
+
+                <a class="read-more" href="contact.html">Learn More</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700"
+                alt="Website analytics on a computer"
+            >
+
+            <div class="blog-content">
+                <span class="category">Digital Marketing</span>
+                <h3>Building Your Online Presence</h3>
+
+                <p>
+                    Discover ways businesses can use digital platforms
+                    to reach customers and communicate their value.
+                </p>
+
+                <a class="read-more" href="contact.html">Learn More</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700"
+                alt="Web developer working on a laptop"
+            >
+
+            <div class="blog-content">
+                <span class="category">Web Development</span>
+                <h3>Why Your Business Needs a Website</h3>
+
+                <p>
+                    Understand how a well-designed website can help
+                    customers discover your services and contact you.
+                </p>
+
+                <a class="read-more" href="contact.html">Learn More</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700"
+                alt="Business team discussing ideas"
+            >
+
+            <div class="blog-content">
+                <span class="category">Branding</span>
+                <h3>Creating a Strong Business Brand</h3>
+
+                <p>
+                    Explore the importance of consistency, visual identity
+                    and clear communication in building a brand.
+                </p>
+
+                <a class="read-more" href="contact.html">Learn More</a>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="notice">
+        <strong>Note:</strong> These are introductory article previews.
+        You can replace them with your own full articles and publish
+        new business updates as your website grows.
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 DENIS GODSON GLOBAL VENTURES. All Rights Reserved.</p>
+
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms & Conditions</a> |
+        <a href="newsletter.html">Newsletter</a>
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat with DENIS AI, the virtual assistant of DENIS GODSON GLOBAL VENTURES.">
+    <title>DENIS AI | DENIS GODSON GLOBAL VENTURES</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5fa;
+            color: #172033;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #101b35;
+            color: white;
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 750px;
+            margin: 25px auto;
+            padding: 0 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+            overflow: hidden;
+        }
+
+        .chat-heading {
+            background: #1d4ed8;
+            color: white;
+            padding: 16px;
+        }
+
+        .chat-heading h2 {
+            font-size: 19px;
+        }
+
+        .chat-heading p {
+            font-size: 12px;
+            margin-top: 5px;
+            color: #dbeafe;
+        }
+
+        #messages {
+            flex: 1;
+            padding: 18px;
+            overflow-y: auto;
+            min-height: 350px;
+            max-height: 500px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            max-width: 85%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            line-height: 1.5;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+
+        .bot .bubble {
+            background: #edf2f8;
+            color: #172033;
+        }
+
+        .user .bubble {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        .typing {
+            color: #64748b;
+            font-size: 13px;
+            padding: 0 18px 12px;
+            display: none;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 8px;
+            padding: 14px;
+            border-top: 1px solid #e5e7eb;
+            background: #fff;
+        }
+
+        #userInput {
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #userInput:focus {
+            border-color: #1d4ed8;
+        }
+
+        #sendButton {
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #sendButton:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .notice {
+            text-align: center;
+            color: #64748b;
+            font-size: 11px;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        @media (max-width: 500px) {
+            .chat-container {
+                margin: 12px auto;
+            }
+
+            .chat-box {
+                min-height: 70vh;
+            }
+
+            #sendButton {
+                padding: 0 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>DENIS GODSON GLOBAL VENTURES</h1>
+    <p>Creative Solutions • Digital Growth • Innovation</p>
+    <a href="index.html" class="back-link">← Back to Home</a>
+</header>
+
+<main class="chat-container">
+    <section class="chat-box">
+
+        <div class="chat-heading">
+            <h2>🤖 DENIS AI</h2>
+            <p>Your virtual business assistant</p>
+        </div>
+
+        <div id="messages" aria-live="polite">
+            <div class="message bot">
+                <div class="bubble">
+                    Hello! Welcome to DENIS GODSON GLOBAL VENTURES.
+
+                    I am DENIS AI. I can help you learn about our graphic designing, web development, branding and digital marketing services.
+
+                    How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <div class="typing" id="typing">
+            DENIS AI is typing...
+        </div>
+
+        <form class="input-area" id="chatForm">
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Type your message..."
+                maxlength="3000"
+                autocomplete="off"
+                aria-label="Your message"
+                required
+            >
+
+            <button type="submit" id="sendButton">
+                Send
+            </button>
+        </form>
+
+        <p class="notice">
+            DENIS AI is an automated assistant. Please don't send passwords or private financial information.
+        </p>
+
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 DENIS GODSON GLOBAL VENTURES. All rights reserved.
+</footer>
+
+<script>
+    const chatForm = document.getElementById("chatForm");
+    const userInput = document.getElementById("userInput");
+    const messages = document.getElementById("messages");
+    const typing = document.getElementById("typing");
+    const sendButton = document.getElementById("sendButton");
+
+    // Conversation history sent to the backend.
+    const conversation = [];
+
+    function addMessage(text, sender) {
+        const message = document.createElement("div");
+        message.className = "message " + sender;
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+
+        // textContent prevents messages from being treated as HTML.
+        bubble.textContent = text;
+
+        message.appendChild(bubble);
+        messages.appendChild(message);
+
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    chatForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const text = userInput.value.trim();
+
+        if (!text || sendButton.disabled) {
+            return;
+        }
+
+        addMessage(text, "user");
+
+        conversation.push({
+            role: "user",
+            content: text
+        });
+
+        userInput.value = "";
+        sendButton.disabled = true;
+        typing.style.display = "block";
+
+        try {
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    messages: conversation
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    data.error || "The AI service is unavailable."
+                );
+            }
+
+            if (!data.reply) {
+                throw new Error("DENIS AI returned an empty response.");
+            }
+
+            addMessage(data.reply, "bot");
+
+            conversation.push({
+                role: "assistant",
+                content: data.reply
+            });
+
+            // Keep the browser's conversation history manageable.
+            if (conversation.length > 10) {
+                conversation.splice(0, conversation.length - 10);
+            }
+
+        } catch (error) {
+            addMessage(
+                "Sorry, I cannot connect to DENIS AI right now. Please try again later.",
+                "bot"
+            );
+
+            console.error("Chat error:", error);
+
+        } finally {
+            typing.style.display = "none";
+            sendButton.disabled = false;
+            userInput.focus();
+        }
+    });
+</script>
+
+</body>
+</html>

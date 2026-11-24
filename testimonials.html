@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testimonials | DENIS GODSON GLOBAL VENTURES</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .testimonial-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            max-width: 1100px;
+            margin: 35px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: #111b31;
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            border: 1px solid #26344f;
+            text-align: left;
+        }
+
+        .testimonial-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-5px);
+            transition: 0.3s;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            color: #c4ccda;
+            line-height: 1.7;
+        }
+
+        .customer-name {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .review-form {
+            max-width: 650px;
+            margin: 40px auto;
+            background: #111b31;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            color: white;
+        }
+
+        .review-form input,
+        .review-form textarea,
+        .review-form select {
+            width: 100%;
+            padding: 13px;
+            margin: 10px 0 20px;
+            box-sizing: border-box;
+            background: #1d2b45;
+            color: white;
+            border: 1px solid #334563;
+            border-radius: 8px;
+        }
+
+        .review-form button {
+            width: 100%;
+            padding: 14px;
+            background: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .review-note {
+            font-size: 12px;
+            color: #aab6cc;
+            line-height: 1.6;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+<div class="logo">
+    <a href="index.html">
+        <img src="images/logo.png"
+             alt="DENIS GODSON GLOBAL VENTURES Logo"
+             style="width:55px; height:55px; object-fit:contain;">
+    </a>
+    <div class="logo-text">
+        <h2>DENIS GODSON GLOBAL VENTURES</h2>
+        <span>GLOBAL EXCELLENCE</span>
+    </div>
+</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>What Our Clients Say</h1>
+
+        <p>
+            Your satisfaction and feedback matter to us.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="testimonial-section">
+
+    <h2>Customer Testimonials</h2>
+
+    <p>
+        We value every customer's experience.
+    </p>
+
+
+    <div class="testimonial-container">
+
+        <div class="testimonial-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                Customer feedback will appear here.
+                We look forward to delivering excellent
+                creative and digital services.
+            </p>
+
+            <div class="customer-name">
+                Sample Review
+            </div>
+
+        </div>
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                Share your experience with our graphic
+                design, branding and web development services.
+            </p>
+
+            <div class="customer-name">
+                Customer Feedback
+            </div>
+
+        </div>
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                We appreciate every customer who trusts
+                DENIS GODSON GLOBAL VENTURES.
+            </p>
+
+            <div class="customer-name">
+                Client Experience
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="testimonial-section">
+
+    <h2>Share Your Experience</h2>
+
+    <p>
+        Have you worked with us?
+        We would love to hear your feedback.
+    </p>
+
+
+    <form class="review-form" id="reviewForm">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <label>Service Received</label>
+
+        <select id="service" required>
+
+            <option value="">Select a service</option>
+
+            <option>Graphic Designing</option>
+
+            <option>Website Development</option>
+
+            <option>Branding</option>
+
+            <option>Digital Marketing</option>
+
+            <option>Other</option>
+
+        </select>
+
+
+        <label>Your Rating</label>
+
+        <select id="rating" required>
+
+            <option value="">Choose your rating</option>
+
+            <option value="5">★★★★★ - Excellent</option>
+
+            <option value="4">★★★★ - Very Good</option>
+
+            <option value="3">★★★ - Good</option>
+
+            <option value="2">★★ - Fair</option>
+
+            <option value="1">★ - Poor</option>
+
+        </select>
+
+
+        <label>Your Review</label>
+
+        <textarea
+            id="review"
+            rows="6"
+            placeholder="Tell us about your experience..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            Submit Review
+        </button>
+
+        <p class="review-note">
+            Your review will be sent to our WhatsApp for
+            verification before being published.
+        </p>
+
+    </form>
+
+</section>
+
+
+<section class="services">
+
+    <h2>Ready to Work With Us?</h2>
+
+    <p>
+        Let's create something extraordinary together.
+    </p>
+
+    <a href="booking.html" class="btn">
+        Book Our Services
+    </a>
+
+</section>
+
+
+<footer>
+
+    <h3>DENIS GODSON GLOBAL VENTURES</h3>
+
+    <p>Turning Ideas Into Digital Excellence.</p>
+
+    <p>
+        <a href="terms.html">Terms</a> |
+        <a href="privacy.html">Privacy</a> |
+        <a href="faq.html">FAQ</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+    <p>
+        &copy; 2026 DENIS GODSON GLOBAL VENTURES.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+document.getElementById("reviewForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("customerName").value.trim();
+
+    const service = document.getElementById("service").value;
+
+    const rating = document.getElementById("rating").value;
+
+    const review = document.getElementById("review").value.trim();
+
+
+    const message = `
+NEW CUSTOMER REVIEW
+
+Business: DENIS GODSON GLOBAL VENTURES
+
+Customer: ${name}
+
+Service: ${service}
+
+Rating: ${rating}/5 Stars
+
+Review:
+${review}
+
+Please review this feedback for publication.
+    `;
+
+
+    const whatsappURL =
+        "https://wa.me/2349017976007?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(whatsappURL, "_blank");
+
+});
+
+</script>
+
+</body>
+
+</html>

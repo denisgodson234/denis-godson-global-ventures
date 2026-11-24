@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | DENIS GODSON GLOBAL VENTURES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+<div class="logo">
+    <a href="index.html">
+        <img src="images/logo.png"
+             alt="DENIS GODSON GLOBAL VENTURES Logo"
+             style="width:55px; height:55px; object-fit:contain;">
+    </a>
+    <div class="logo-text">
+        <h2>DENIS GODSON GLOBAL VENTURES</h2>
+        <span>GLOBAL EXCELLENCE</span>
+    </div>
+</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Let's Talk About Your Project</h1>
+        <p>
+            Have an idea, project or business you want to grow?
+            We are ready to help you bring it to life.
+        </p>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Get In Touch</h2>
+    <p>We would love to hear from you.</p>
+
+    <div class="service-container">
+
+        <div class="service-card">
+            <h3>📞 Phone</h3>
+            <p>09017976007</p>
+        </div>
+
+        <div class="service-card">
+            <h3>💬 WhatsApp</h3>
+            <p>Chat with our team directly.</p>
+            <a href="https://wa.me/2349017976007"
+               class="btn" target="_blank">
+                Chat on WhatsApp
+            </a>
+        </div>
+
+        <div class="service-card">
+            <h3>🌍 Our Services</h3>
+            <p>Graphic Design, Web Development, Branding and Digital Marketing.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="services">
+    <h2>Send Us a Message</h2>
+
+    <form id="contactForm" class="contact-form">
+
+        <input type="text" id="name"
+        placeholder="Your Full Name" required>
+
+        <input type="email" id="email"
+        placeholder="Your Email Address" required>
+
+        <input type="text" id="subject"
+        placeholder="Message Subject" required>
+
+        <textarea id="message"
+        placeholder="Tell us about your project..."
+        rows="6" required></textarea>
+
+        <button type="submit" class="btn">
+            Send Message
+        </button>
+
+    </form>
+</section>
+
+<section class="services">
+    <h2>Need Immediate Assistance?</h2>
+    <p>Our digital assistant is here to help you.</p>
+
+    <a href="https://wa.me/2349017976007"
+       class="btn">
+        Contact Our Team
+    </a>
+</section>
+
+<footer>
+    <h3>DENIS GODSON GLOBAL VENTURES</h3>
+    <p>Turning Ideas Into Digital Excellence.</p>
+    <p>&copy; 2026 DENIS GODSON GLOBAL VENTURES. All Rights Reserved.</p>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const text = `Hello DENIS GODSON GLOBAL VENTURES!
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}`;
+
+    const whatsappURL =
+    "https://wa.me/2349017976007?text=" +
+    encodeURIComponent(text);
+
+    window.open(whatsappURL, "_blank");
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+    "id": "/",
+    "name": "DENIS GODSON GLOBAL VENTURES",
+    "short_name": "DENIS GLOBAL",
+    "description": "Graphic design, web development, branding and digital marketing solutions.",
+    "start_url": "/index.html",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f4f7fc",
+    "theme_color": "#071b3a",
+    "categories": [
+        "business",
+        "productivity",
+        "design"
+    ],
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
