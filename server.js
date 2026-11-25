@@ -193,6 +193,19 @@ Rules:
   }
   });
 
+// Explicit robots.txt instructions for search engines.
+app.get("/robots.txt", (req, res) => {
+res.type("text/plain");
+res.send(`User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://dggv.onrender.com/sitemap.xml
+`);
+});
+
 // Serve website files.
 app.use(express.static(__dirname, {
 index: false,
